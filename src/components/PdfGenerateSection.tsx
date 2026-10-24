@@ -77,11 +77,8 @@ const PdfGenerateSection: React.FC<PdfGenerateSectionProps> = () => {
 
   // ConvertToImage State - used by the preview function
   const [images, setImages] = useState<string[]>([]);
-  // These variables are used in the handlePreview function when passed to generatePDF
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [imageLoading, setImageLoading] = useState<boolean>(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [imageError, setImageError] = useState<string | null>(null);
+  const [, setImageLoading] = useState<boolean>(false);
+  const [, setImageError] = useState<string | null>(null);
 
   // Create a debounced update function with 500ms delay
   const debouncedUpdate = useCallback(() => {
@@ -175,71 +172,6 @@ const PdfGenerateSection: React.FC<PdfGenerateSectionProps> = () => {
     setDateFrom(defaultValues.dateFrom);
     setDateTo(defaultValues.dateTo);
     setRemarksFields(defaultValues.remarksFields);
-  };
-
-  const handleGeneratePDF = async () => {
-    try {
-      setIsLoading(true);
-      
-      const params: PdfGenerationParams = {
-        inputDate2,
-        inputText1,
-        inputText2,
-        inputText3,
-        inputText4,
-        inputText5,
-        rentAmount,
-        securityDeposit,
-        propertyUse,
-        managementFee,
-        governmentRates,
-        governmentRent,
-        rentFreeFrom,
-        rentFreeTo,
-        breakClause1,
-        breakClause2,
-        breakClause3,
-        breakClause3Other,
-        airConditioner,
-        ventilator,
-        oilVentilator,
-        waterHeater,
-        gasStove,
-        lightings,
-        refrigerator,
-        washingMachine,
-        bed,
-        wardrobe,
-        settee,
-        otherFurniture,
-        landLordId,
-        landlordTel,
-        tenantId,
-        tenantTel,
-        landlordBankAccount,
-        bank,
-        dateFrom,
-        dateTo,
-        remarksFields,
-        language,
-        t
-      };
-      
-      const url = await generatePDF(params);
-      
-      if (url) {
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = "filled_tenancy_agreement.pdf";
-        link.click();
-      }
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('Error generating PDF. Please check the console for details.');
-    } finally {
-      setIsLoading(false);
-      resetFormValues();
-    }
   };
 
   const handlePreview = async () => {
