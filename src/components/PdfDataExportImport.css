@@ -1,0 +1,88 @@
+.pdf-data-export-import {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.export-import-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.export-btn,
+.import-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.export-btn {
+  background-color: #e0f7fa;
+  color: #00838f;
+}
+
+.export-btn:hover {
+  background-color: #b2ebf2;
+}
+
+.import-btn {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.import-btn:hover {
+  background-color: #c8e6c9;
+}
+
+.import-error,
+.import-success {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  animation: fadeIn 0.3s ease;
+}
+
+.import-error {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.import-success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .export-import-buttons {
+    width: 100%;
+  }
+  
+  .export-btn,
+  .import-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}

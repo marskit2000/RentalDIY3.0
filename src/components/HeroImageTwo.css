@@ -1,0 +1,45 @@
+.hero-image {
+    width: 600px;
+    object-fit: cover;
+    transform: rotate(3deg);
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    top: 100px;
+    right: 5%;
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* Tablet Responsive Styles */
+@media (max-width: 768px) {
+    .hero-image {
+        width: 450px;
+        top: 20px;
+        right: 0;
+        transform: rotate(2deg);
+    }
+    
+    .hero-image-container {
+        margin-top: 30px;
+    }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 425px) {
+    .hero-image {
+        width: 300px;
+        top: 10px;
+        transform: rotate(1deg);
+    }
+}

@@ -1,0 +1,296 @@
+.ad-interstitial-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.ad-interstitial-modal-container {
+  background-color: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px; /* Increased from 600px for larger screens */
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.ad-interstitial-modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.ad-interstitial-modal-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.ad-interstitial-progress-wrapper {
+  margin: 25px auto 0;
+  width: 80%;
+  position: relative;
+}
+
+.ad-interstitial-progress-container {
+  width: 100%;
+  height: 12px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.ad-interstitial-progress-label {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2px 8px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ad-interstitial-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4ca1af, #2c3e50, #4ca1af);
+  background-size: 200% 100%;
+  border-radius: 20px;
+  transition: width 0.1s linear; /* Faster, linear transition for smoother animation */
+  box-shadow: 0 0 5px rgba(76, 161, 175, 0.5);
+  position: relative;
+  overflow: hidden;
+  animation: gradient-shift 2s ease infinite;
+  will-change: width; /* Optimize for animations */
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.ad-interstitial-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%
+  );
+  background-size: 20px 20px;
+  animation: progress-animation 1s linear infinite;
+}
+
+@keyframes progress-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 0;
+  }
+}
+
+.ad-interstitial-modal-header h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.ad-interstitial-modal-header p {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.5;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.ad-interstitial-modal-content {
+  margin: 25px auto;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  min-height: 300px; /* Increased height for better ad visibility */
+  width: 95%;
+  max-width: 728px; /* Common ad size for desktops */
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background-color: #f9f9f9;
+}
+
+.ad-interstitial-modal-footer {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.ad-interstitial-countdown {
+  text-align: center;
+  font-size: 20px;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 0;
+  background-color: #f0f7fa;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ad-interstitial-skip-button {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  color: #666;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ad-interstitial-skip-button:hover {
+  background-color: #e0e0e0;
+}
+
+.ad-interstitial-continue-button {
+  padding: 15px 30px;
+  background: linear-gradient(90deg, #4ca1af, #2c3e50);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  letter-spacing: 0.5px;
+}
+
+.ad-interstitial-continue-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+/* Large screens and laptops */
+@media (min-width: 1200px) {
+  .ad-interstitial-modal-container {
+    max-width: 900px;
+    padding: 40px;
+  }
+  
+  .ad-interstitial-modal-content {
+    min-height: 350px;
+  }
+  
+  .ad-interstitial-modal-header h2 {
+    font-size: 32px;
+  }
+  
+  .ad-interstitial-modal-header p {
+    font-size: 20px;
+  }
+}
+
+/* Tablets and medium screens */
+@media (max-width: 992px) {
+  .ad-interstitial-modal-container {
+    max-width: 700px;
+    padding: 25px;
+  }
+}
+
+/* Small tablets and large phones */
+@media (max-width: 768px) {
+  .ad-interstitial-modal-container {
+    width: 95%;
+    padding: 20px;
+  }
+  
+  .ad-interstitial-modal-header h2 {
+    font-size: 22px;
+  }
+  
+  .ad-interstitial-modal-header p {
+    font-size: 16px;
+    max-width: 90%;
+  }
+  
+  .ad-interstitial-modal-content {
+    min-height: 250px;
+  }
+  
+  .ad-interstitial-continue-button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .ad-interstitial-modal-container {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .ad-interstitial-modal-header h2 {
+    font-size: 20px;
+  }
+  
+  .ad-interstitial-modal-header p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  
+  .ad-interstitial-modal-content {
+    min-height: 200px;
+    padding: 10px;
+  }
+  
+  .ad-interstitial-countdown {
+    font-size: 16px;
+  }
+  
+  .ad-interstitial-continue-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
